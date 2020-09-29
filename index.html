@@ -31,6 +31,9 @@
                 $('#m').val('');//.val(값): 양식의 값을 설정 (여기선 비움)
                 return false; //preventDefault와 동일
             });
+            socket.on('chat message', function(msg){
+                 $('#messages').append($('<li>').text(msg));
+            });
         });//$() 함수: 선택된 html요소를 jQuery에서 이용할 수 있는 형태로 생성
     </script>
   </body>
