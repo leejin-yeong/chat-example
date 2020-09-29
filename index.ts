@@ -16,6 +16,9 @@ app.get('/',(req, res) => {
 io.on('connection', (socket) => {
     console.log('a user connected');
     //새로고침 시 terminal에 뜸
+    socket.on('disconnect',()=>{
+        console.log('user disconnected');
+    });
 });
 
 http.listen(3000,()=>{
