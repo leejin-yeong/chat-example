@@ -14,10 +14,17 @@ app.get('/',(req, res) => {
 });
 
 io.on('connection', (socket) => {
-    console.log('a user connected');
+    /*console.log('a user connected');
     //새로고침 시 terminal에 뜸
+
     socket.on('disconnect',()=>{
         console.log('user disconnected');
+    });
+    */
+    socket.on('connection',(socket)=> {
+        socket.on('chat message', (msg)=> {
+            console.log('message: ' + msg);
+        });
     });
 });
 
